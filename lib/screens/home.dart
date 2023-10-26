@@ -79,9 +79,38 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           child: SafeArea(
             child: Scaffold(
                 //key: homeData.scaffoldKey,
-                appBar: PreferredSize(
-                  preferredSize: Size.fromHeight(50),
-                  child: buildAppBar(statusBarHeight, context),
+                appBar:
+
+                PreferredSize(
+                  preferredSize: Size.fromHeight(110),
+                  child:
+                  Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16,right: 16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset("assets/logoo.png"),
+
+                           // Text("datka"),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                SizedBox(width: 2,),
+                                Image.asset("assets/notificationlogo.png"),
+                                SizedBox(width: 2,),
+                                Image.asset("assets/heartlogo.png"),
+                                SizedBox(width: 2,),
+                                Image.asset("assets/cartlogo.png"),
+                                SizedBox(width: 2,),
+                              ],)
+
+                          ],),
+                      ),
+                      buildAppBar(statusBarHeight, context),
+                    ],
+                  ),
                 ),
                 //drawer: MainDrawer(),
                 body: Stack(
@@ -111,35 +140,35 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                         color: Colors.black,
                                         child: Stack(
                                           children: [
-                                            Positioned(
-                                                left: 20,
-                                                top: 0,
-                                                child: AnimatedBuilder(
-                                                    animation: homeData
-                                                        .pirated_logo_animation,
-                                                    builder: (context, child) {
-                                                      return Image.asset(
-                                                        "assets/pirated_square.png",
-                                                        height: homeData
-                                                            .pirated_logo_animation
-                                                            .value,
-                                                        color: Colors.white,
-                                                      );
-                                                    })),
-                                            Center(
-                                              child: Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 24.0,
-                                                    left: 24,
-                                                    right: 24),
-                                                child: Text(
-                                                  "This is a pirated app. Do not use this. It may have security issues.",
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 18),
-                                                ),
-                                              ),
-                                            ),
+                                            // Positioned(
+                                            //     left: 20,
+                                            //     top: 0,
+                                            //     child: AnimatedBuilder(
+                                            //         animation: homeData
+                                            //             .pirated_logo_animation,
+                                            //         builder: (context, child) {
+                                            //           return Image.asset(
+                                            //             "assets/pirated_square.png",
+                                            //             height: homeData
+                                            //                 .pirated_logo_animation
+                                            //                 .value,
+                                            //             color: Colors.white,
+                                            //           );
+                                            //         })),
+                                            // Center(
+                                            //   child: Padding(
+                                            //     padding: const EdgeInsets.only(
+                                            //         top: 24.0,
+                                            //         left: 24,
+                                            //         right: 24),
+                                            //     child: Text(
+                                            //       "This is a pirated app. Do not use this. It may have security issues.",
+                                            //       style: TextStyle(
+                                            //           color: Colors.white,
+                                            //           fontSize: 18),
+                                            //     ),
+                                            //   ),
+                                            // ),
                                           ],
                                         ),
                                       ),

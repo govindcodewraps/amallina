@@ -20,7 +20,8 @@ class AppConfig {
 
   //static const DOMAIN_PATH = "192.168.6.1/ecommerce"; //localhost
   //static const DOMAIN_PATH = "https://umonda.com"; //localhost
-  static const DOMAIN_PATH = "https://www.webcluestechnology.com/demo/ecommerce/ammalina/"; //localhost
+  //static const DOMAIN_PATH = "https://www.webcluestechnology.com/demo/ecommerce/ammalina/"; //localhost
+  static const DOMAIN_PATH = "https://hardwarelo.com"; //localhost
 
 // directly inside the public folder
 
