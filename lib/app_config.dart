@@ -4,8 +4,8 @@ var this_year = DateTime.now().year.toString();
 
 class AppConfig {
   static String copyright_text =
-      "@ ActiveItZone " + this_year; //this shows in the splash screen
-  static String app_name = "Active"; //this shows in the splash screen
+      "@ Amallina " + this_year; //this shows in the splash screen
+  static String app_name = "Amallina"; //this shows in the splash screen
   static String purchase_code = "a94b130c-1ffa-4a1a-818a-77ff4adb4bfd";
   //enter your purchase code for the app from codecanyon
   //static String purchase_code = ""; //enter your purchase code for the app from codecanyon
@@ -20,8 +20,8 @@ class AppConfig {
 
   //static const DOMAIN_PATH = "192.168.6.1/ecommerce"; //localhost
   //static const DOMAIN_PATH = "https://umonda.com"; //localhost
-  //static const DOMAIN_PATH = "https://www.webcluestechnology.com/demo/ecommerce/ammalina/"; //localhost
-  static const DOMAIN_PATH = "https://hardwarelo.com"; //localhost
+  static const DOMAIN_PATH = "https://www.webcluestechnology.com/demo/ecommerce/ammalina"; //localhost
+  //static const DOMAIN_PATH = "https://hardwarelo.com"; //localhost
 
 // directly inside the public folder
 

@@ -157,7 +157,12 @@ class _ProductCardState extends State<ProductCard> {
                           ],
                         ),
                         child: Text(
-                          widget.discount ?? "",
+                         // widget.discount ?? "",
+
+                          widget.discount != null
+                              ? widget.discount.replaceAll('-', '') // Remove the minus sign
+                              : "",
+
                           style: TextStyle(
                             fontSize: 10,
                             color: const Color(0xffffffff),
@@ -183,7 +188,8 @@ class _ProductCardState extends State<ProductCard> {
                                 ),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: const Color(0x14000000),
+                                    //color: const Color(0x14000000),
+                                    color: Colors.black,
                                     offset: Offset(-1, 1),
                                     blurRadius: 1,
                                   ),

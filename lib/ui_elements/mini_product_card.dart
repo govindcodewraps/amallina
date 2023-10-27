@@ -136,8 +136,11 @@ class _MiniProductCardState extends State<MiniProductCard> {
                           ),
                         ],
                       ),
-                      child: Text(
-                        widget.discount ?? "",
+                      child:
+                      Text(
+                        widget.discount != null
+                            ? widget.discount.replaceAll('-', '') // Remove the minus sign
+                            : "", // Handle the case when discount is null
                         style: TextStyle(
                           fontSize: 10,
                           color: const Color(0xffffffff),
@@ -145,9 +148,24 @@ class _MiniProductCardState extends State<MiniProductCard> {
                           height: 1.8,
                         ),
                         textHeightBehavior:
-                            TextHeightBehavior(applyHeightToFirstAscent: false),
+                        TextHeightBehavior(applyHeightToFirstAscent: false),
                         softWrap: false,
-                      ),
+                      )
+
+
+
+                      // Text(
+                      //   widget.discount ?? "",
+                      //   style: TextStyle(
+                      //     fontSize: 10,
+                      //     color: const Color(0xffffffff),
+                      //     fontWeight: FontWeight.w700,
+                      //     height: 1.8,
+                      //   ),
+                      //   textHeightBehavior:
+                      //       TextHeightBehavior(applyHeightToFirstAscent: false),
+                      //   softWrap: false,
+                      // ),
                     ),
                   Visibility(
                     visible: whole_sale_addon_installed.$,
