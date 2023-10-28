@@ -79,12 +79,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           child: SafeArea(
             child: Scaffold(
                 //key: homeData.scaffoldKey,
-                appBar:
-
-                PreferredSize(
+                appBar: PreferredSize(
                   preferredSize: Size.fromHeight(110),
-                  child:
-                  Column(
+                  child: Column(
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 16,right: 16),
@@ -93,7 +90,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           children: [
                             Image.asset("assets/logoo.png"),
 
-                           // Text("datka"),
+                            // Text("datka"),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -127,53 +124,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         slivers: <Widget>[
                           SliverList(
                             delegate: SliverChildListDelegate([
-                              AppConfig.purchase_code == ""
-                                  ? Padding(
-                                      padding: const EdgeInsets.fromLTRB(
-                                        9.0,
-                                        16.0,
-                                        9.0,
-                                        0.0,
-                                      ),
-                                      child: Container(
-                                        height: 140,
-                                        color: Colors.black,
-                                        child: Stack(
-                                          children: [
-                                            // Positioned(
-                                            //     left: 20,
-                                            //     top: 0,
-                                            //     child: AnimatedBuilder(
-                                            //         animation: homeData
-                                            //             .pirated_logo_animation,
-                                            //         builder: (context, child) {
-                                            //           return Image.asset(
-                                            //             "assets/pirated_square.png",
-                                            //             height: homeData
-                                            //                 .pirated_logo_animation
-                                            //                 .value,
-                                            //             color: Colors.white,
-                                            //           );
-                                            //         })),
-                                            // Center(
-                                            //   child: Padding(
-                                            //     padding: const EdgeInsets.only(
-                                            //         top: 24.0,
-                                            //         left: 24,
-                                            //         right: 24),
-                                            //     child: Text(
-                                            //       "This is a pirated app. Do not use this. It may have security issues.",
-                                            //       style: TextStyle(
-                                            //           color: Colors.white,
-                                            //           fontSize: 18),
-                                            //     ),
-                                            //   ),
-                                            // ),
-                                          ],
-                                        ),
-                                      ),
-                                    )
-                                  : Container(),
                               buildHomeCarouselSlider(context, homeData),
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(
@@ -184,7 +134,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 ),
                                 child: buildHomeMenuRow1(context, homeData),
                               ),
-                              buildHomeBannerOne(context, homeData),
+                              //buildHomeBannerOne(context, homeData),
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(
                                   18.0,
@@ -431,12 +381,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return CategoryProducts(
-                    category_id: homeData.featuredCategoryList[index].id,
-                    category_name: homeData.featuredCategoryList[index].name,
-                  );
-                }));
+                // Navigator.push(context, MaterialPageRoute(builder: (context) {
+                //   return CategoryProducts(
+                //     category_id: homeData.featuredCategoryList[index].id,
+                //     category_name: homeData.featuredCategoryList[index].name,
+                //   );
+                // }));
               },
               child: Container(
                 decoration: BoxDecorations.buildBoxDecoration_1(),
@@ -586,9 +536,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             fit: FlexFit.tight,
             child: GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return TodaysDealProducts();
-                }));
+                // Navigator.push(context, MaterialPageRoute(builder: (context) {
+                //   return TodaysDealProducts();
+                // }));
               },
               child: Container(
                 height: 90,
@@ -619,9 +569,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             fit: FlexFit.tight,
             child: GestureDetector(
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return FlashDealList();
-                }));
+                // Navigator.push(context, MaterialPageRoute(builder: (context) {
+                //   return FlashDealList();
+                // }));
               },
               child: Container(
                 height: 90,
@@ -694,11 +644,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           fit: FlexFit.tight,
           child: GestureDetector(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return Filter(
-                  selected_filter: "brands",
-                );
-              }));
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return Filter(
+              //     selected_filter: "brands",
+              //   );
+              // }));
             },
             child: Container(
               height: 90,
@@ -732,9 +682,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           fit: FlexFit.tight,
           child: GestureDetector(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return TopSellingProducts();
-              }));
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return TopSellingProducts();
+              // }));
             },
             child: Container(
               height: 90,
@@ -769,7 +719,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           padding:
               const EdgeInsets.only(left: 18, right: 18, top: 0, bottom: 20),
           child: ShimmerHelper().buildBasicShimmer(height: 120));
-    } else if (homeData.carouselImageList.length > 0) {
+    }
+    else if (homeData.carouselImageList.length > 0) {
       return CarouselSlider(
         options: CarouselOptions(
             aspectRatio: 338 / 140,
@@ -828,7 +779,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           );
         }).toList(),
       );
-    } else if (!homeData.isCarouselInitial &&
+    }
+    else if (!homeData.isCarouselInitial &&
         homeData.carouselImageList.length == 0) {
       return Container(
           height: 100,
@@ -837,7 +789,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             AppLocalizations.of(context).no_carousel_image_found,
             style: TextStyle(color: MyTheme.font_grey),
           )));
-    } else {
+    }
+    else {
       // should not be happening
       return Container(
         height: 100,
@@ -888,16 +841,19 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           }).toList(),
         ),
       );
-    } else if (!homeData.isBannerOneInitial &&
+    }
+    else if (!homeData.isBannerOneInitial &&
         homeData.bannerOneImageList.length == 0) {
       return Container(
           height: 100,
           child: Center(
               child: Text(
-            AppLocalizations.of(context).no_carousel_image_found,
+                "RRRRRRRRRR",
+           // AppLocalizations.of(context).no_carousel_image_found,
             style: TextStyle(color: MyTheme.font_grey),
           )));
-    } else {
+    }
+    else {
       // should not be happening
       return Container(
         height: 100,
@@ -955,7 +911,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           height: 100,
           child: Center(
               child: Text(
-            AppLocalizations.of(context).no_carousel_image_found,
+                AppLocalizations.of(context).no_carousel_image_found,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     } else {
@@ -980,9 +936,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             const EdgeInsets.only(top: 10.0, bottom: 10, left: 18, right: 18),
         child: GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return Filter();
-            }));
+            // Navigator.push(context, MaterialPageRoute(builder: (context) {
+            //   return Filter();
+            // }));
           },
           child: buildHomeSearchBox(context),
         ),
