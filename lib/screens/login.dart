@@ -573,7 +573,8 @@ class _LoginState extends State<Login> {
                     style: TextStyle(color: MyTheme.font_grey, fontSize: 12),
                   )),
                 ),
-              ),
+                ),
+             /*
               Padding(
                 padding: const EdgeInsets.only(top: 15.0),
                 child: Center(
@@ -621,7 +622,7 @@ class _LoginState extends State<Login> {
                               ),
                             ),
                           ),
-                       /* if (Platform.isIOS)
+                       *//* if (Platform.isIOS)
                           Padding(
                             padding: const EdgeInsets.only(left: 15.0),
                             // visible: true,
@@ -634,12 +635,12 @@ class _LoginState extends State<Login> {
                                 child: Image.asset("assets/apple_logo.png"),
                               ),
                             ),
-                          ),*/
+                          ),*//*
                       ],
                     ),
                   ),
                 ),
-              ),
+              ),*/
             ],
           ),
         )

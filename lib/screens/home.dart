@@ -79,9 +79,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           child: SafeArea(
             child: Scaffold(
                 //key: homeData.scaffoldKey,
-                appBar: PreferredSize(
+                appBar:
+
+                PreferredSize(
                   preferredSize: Size.fromHeight(110),
-                  child: Column(
+                  child:
+                  Column(
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(left: 16,right: 16),
@@ -90,7 +93,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           children: [
                             Image.asset("assets/logoo.png"),
 
-                            // Text("datka"),
+                           // Text("datka"),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -124,13 +127,60 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         slivers: <Widget>[
                           SliverList(
                             delegate: SliverChildListDelegate([
+                              AppConfig.purchase_code == ""
+                                  ? Padding(
+                                      padding: const EdgeInsets.fromLTRB(
+                                        9.0,
+                                        16.0,
+                                        9.0,
+                                        0.0,
+                                      ),
+                                      child: Container(
+                                        height: 140,
+                                        color: Colors.black,
+                                        child: Stack(
+                                          children: [
+                                            // Positioned(
+                                            //     left: 20,
+                                            //     top: 0,
+                                            //     child: AnimatedBuilder(
+                                            //         animation: homeData
+                                            //             .pirated_logo_animation,
+                                            //         builder: (context, child) {
+                                            //           return Image.asset(
+                                            //             "assets/pirated_square.png",
+                                            //             height: homeData
+                                            //                 .pirated_logo_animation
+                                            //                 .value,
+                                            //             color: Colors.white,
+                                            //           );
+                                            //         })),
+                                            // Center(
+                                            //   child: Padding(
+                                            //     padding: const EdgeInsets.only(
+                                            //         top: 24.0,
+                                            //         left: 24,
+                                            //         right: 24),
+                                            //     child: Text(
+                                            //       "This is a pirated app. Do not use this. It may have security issues.",
+                                            //       style: TextStyle(
+                                            //           color: Colors.white,
+                                            //           fontSize: 18),
+                                            //     ),
+                                            //   ),
+                                            // ),
+                                          ],
+                                        ),
+                                      ),
+                                    )
+                                  : Container(),
                               buildHomeCarouselSlider(context, homeData),
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(
                                   18.0,
                                   0.0,
                                   18.0,
-                                  0.0,
+                                  10.0,
                                 ),
                                 child: buildHomeMenuRow1(context, homeData),
                               ),
@@ -171,12 +221,17 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                             ]),
                           ),
                           SliverToBoxAdapter(
-                            child: SizedBox(
+                            child: Container(
+                              decoration: BoxDecorations.buildCartCircularButtonDecoration(),
+
                               height: 154,
                               child: buildHomeFeaturedCategories(
                                   context, homeData),
                             ),
                           ),
+
+
+                          if(homeData.featuredProductList.length > 0)
                           SliverList(
                             delegate: SliverChildListDelegate([
                               Container(
@@ -252,14 +307,18 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 ),
                               ),
                               SingleChildScrollView(
-                                child: Column(
-                                  children: [
-                                    buildHomeAllProducts2(context, homeData),
-                                  ],
+                                child: Container(
+                                  decoration: BoxDecorations.buildCartCircularButtonDecoration(),
+
+                                  child: Column(
+                                    children: [
+                                      buildHomeAllProducts2(context, homeData),
+                                    ],
+                                  ),
                                 ),
                               ),
                               Container(
-                                height: 80,
+                                height: 00,
                                 //color: Colors.red,
                               )
                             ]),
@@ -381,12 +440,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           itemBuilder: (context, index) {
             return GestureDetector(
               onTap: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return CategoryProducts(
-                //     category_id: homeData.featuredCategoryList[index].id,
-                //     category_name: homeData.featuredCategoryList[index].name,
-                //   );
-                // }));
+                // commented code
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return CategoryProducts(
+                    category_id: homeData.featuredCategoryList[index].id,
+                    category_name: homeData.featuredCategoryList[index].name,
+                  );
+                }));
               },
               child: Container(
                 decoration: BoxDecorations.buildBoxDecoration_1(),
@@ -536,9 +596,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             fit: FlexFit.tight,
             child: GestureDetector(
               onTap: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return TodaysDealProducts();
-                // }));
+                //commented code
+
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return TodaysDealProducts();
+                }));
               },
               child: Container(
                 height: 90,
@@ -562,39 +624,83 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
               ),
             ),
           ),
-        if (homeData.isTodayDeal && homeData.isFlashDeal) SizedBox(width: 14.0),
-        if (homeData.isFlashDeal)
-          Flexible(
-            flex: 1,
-            fit: FlexFit.tight,
-            child: GestureDetector(
-              onTap: () {
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return FlashDealList();
-                // }));
-              },
-              child: Container(
-                height: 90,
-                decoration: BoxDecorations.buildBoxDecoration_1(),
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Container(
-                          height: 20,
-                          width: 20,
-                          child: Image.asset("assets/flash_deal.png")),
-                    ),
-                    Text(AppLocalizations.of(context).flash_deal_ucf,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: Color.fromRGBO(132, 132, 132, 1),
-                            fontWeight: FontWeight.w300)),
-                  ],
-                ),
+
+         SizedBox(width: 9,),
+        //added
+        Flexible(
+          flex: 1,
+          fit: FlexFit.tight,
+          child: GestureDetector(
+            onTap: () {
+
+              // commented code
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return Filter(
+                  selected_filter: "brands",
+                );
+              }));
+            },
+            child: Container(
+              height: 90,
+              width: MediaQuery.of(context).size.width / 3 - 4,
+              decoration: BoxDecorations.buildBoxDecoration_1(),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Container(
+                        height: 20,
+                        width: 20,
+                        child: Image.asset("assets/brands.png")),
+                  ),
+                  Text(
+                    "Top Brands",
+                     // AppLocalizations.of(context).brands_ucf,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Color.fromRGBO(132, 132, 132, 1),
+                          fontWeight: FontWeight.w300)),
+                ],
               ),
             ),
-          )
+          ),
+        ),
+
+        //commented code
+        // if (homeData.isTodayDeal && homeData.isFlashDeal) SizedBox(width: 14.0),
+        // if (homeData.isFlashDeal)
+        //   Flexible(
+        //     flex: 1,
+        //     fit: FlexFit.tight,
+        //     child: GestureDetector(
+        //       onTap: () {
+        //         // commented code
+        //         // Navigator.push(context, MaterialPageRoute(builder: (context) {
+        //         //   return FlashDealList();
+        //         // }));
+        //       },
+        //       child: Container(
+        //         height: 90,
+        //         decoration: BoxDecorations.buildBoxDecoration_1(),
+        //         child: Column(
+        //           children: [
+        //             Padding(
+        //               padding: const EdgeInsets.all(16.0),
+        //               child: Container(
+        //                   height: 20,
+        //                   width: 20,
+        //                   child: Image.asset("assets/flash_deal.png")),
+        //             ),
+        //             Text(AppLocalizations.of(context).flash_deal_ucf,
+        //                 textAlign: TextAlign.center,
+        //                 style: TextStyle(
+        //                     color: Color.fromRGBO(132, 132, 132, 1),
+        //                     fontWeight: FontWeight.w300)),
+        //           ],
+        //         ),
+        //       ),
+        //     ),
+        //   )
       ],
     );
   }
@@ -639,40 +745,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             ),
           ),
         ),*/
-        Flexible(
-          flex: 1,
-          fit: FlexFit.tight,
-          child: GestureDetector(
-            onTap: () {
-              // Navigator.push(context, MaterialPageRoute(builder: (context) {
-              //   return Filter(
-              //     selected_filter: "brands",
-              //   );
-              // }));
-            },
-            child: Container(
-              height: 90,
-              width: MediaQuery.of(context).size.width / 3 - 4,
-              decoration: BoxDecorations.buildBoxDecoration_1(),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Container(
-                        height: 20,
-                        width: 20,
-                        child: Image.asset("assets/brands.png")),
-                  ),
-                  Text(AppLocalizations.of(context).brands_ucf,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Color.fromRGBO(132, 132, 132, 1),
-                          fontWeight: FontWeight.w300)),
-                ],
-              ),
-            ),
-          ),
-        ),
+
         if(vendor_system.$)
           SizedBox(width: 10,),
 
@@ -682,9 +755,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           fit: FlexFit.tight,
           child: GestureDetector(
             onTap: () {
-              // Navigator.push(context, MaterialPageRoute(builder: (context) {
-              //   return TopSellingProducts();
-              // }));
+              // commented code
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return TopSellingProducts();
+              }));
             },
             child: Container(
               height: 90,
@@ -719,11 +793,10 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           padding:
               const EdgeInsets.only(left: 18, right: 18, top: 0, bottom: 20),
           child: ShimmerHelper().buildBasicShimmer(height: 120));
-    }
-    else if (homeData.carouselImageList.length > 0) {
+    } else if (homeData.carouselImageList.length > 0) {
       return CarouselSlider(
         options: CarouselOptions(
-            aspectRatio: 338 / 140,
+            aspectRatio: 110 / 50,
             viewportFraction: 1,
             initialPage: 0,
             enableInfiniteScroll: true,
@@ -749,7 +822,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         //color: Colors.amber,
                         width: double.infinity,
                         height: 140,
-                        //decoration: BoxDecorations.buildBoxDecoration_1(),
+                        decoration: BoxDecorations.buildBoxDecoration_1(),
                         child: AIZImage.radiusImage(i, 6)),
                     Align(
                       alignment: Alignment.bottomCenter,
@@ -779,18 +852,17 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           );
         }).toList(),
       );
-    }
-    else if (!homeData.isCarouselInitial &&
+    } else if (!homeData.isCarouselInitial &&
         homeData.carouselImageList.length == 0) {
       return Container(
           height: 100,
           child: Center(
               child: Text(
-            AppLocalizations.of(context).no_carousel_image_found,
+            "CCCCCCCCCCCCCCCCCCC",
+                //AppLocalizations.of(context).no_carousel_image_found,
             style: TextStyle(color: MyTheme.font_grey),
           )));
-    }
-    else {
+    } else {
       // should not be happening
       return Container(
         height: 100,
@@ -841,19 +913,17 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           }).toList(),
         ),
       );
-    }
-    else if (!homeData.isBannerOneInitial &&
+    } else if (!homeData.isBannerOneInitial &&
         homeData.bannerOneImageList.length == 0) {
       return Container(
           height: 100,
           child: Center(
               child: Text(
-                "RRRRRRRRRR",
-           // AppLocalizations.of(context).no_carousel_image_found,
+            "BBBBBBBBBBBBBBBBB",
+                //AppLocalizations.of(context).no_carousel_image_found,
             style: TextStyle(color: MyTheme.font_grey),
           )));
-    }
-    else {
+    } else {
       // should not be happening
       return Container(
         height: 100,
@@ -867,7 +937,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       return Padding(
           padding:
               const EdgeInsets.only(left: 18.0, right: 18, top: 10, bottom: 10),
-          child: ShimmerHelper().buildBasicShimmer(height: 120));
+          child: ShimmerHelper().buildBasicShimmer(height: 125));
     } else if (homeData.bannerTwoImageList.length > 0) {
       return Padding(
         padding: app_language_rtl.$
@@ -875,7 +945,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             : const EdgeInsets.only(left: 9.0),
         child: CarouselSlider(
           options: CarouselOptions(
-              aspectRatio: 270 / 120,
+              aspectRatio: 310 / 140,
               viewportFraction: 0.7,
               enableInfiniteScroll: true,
               reverse: false,
@@ -911,7 +981,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           height: 100,
           child: Center(
               child: Text(
-                AppLocalizations.of(context).no_carousel_image_found,
+              "AAAAAAAAAAAAAAAAAA",
+            //AppLocalizations.of(context).no_carousel_image_found,
             style: TextStyle(color: MyTheme.font_grey),
           )));
     } else {
@@ -936,9 +1007,11 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             const EdgeInsets.only(top: 10.0, bottom: 10, left: 18, right: 18),
         child: GestureDetector(
           onTap: () {
-            // Navigator.push(context, MaterialPageRoute(builder: (context) {
-            //   return Filter();
-            // }));
+
+            // commented code
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return Filter();
+            }));
           },
           child: buildHomeSearchBox(context),
         ),

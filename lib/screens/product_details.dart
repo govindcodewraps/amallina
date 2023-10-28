@@ -151,14 +151,14 @@ class _ProductDetailsState extends State<ProductDetails>
     fetchTopProducts();
   }
 
-  // fetchVariantPrice() async {
-  //   var response = await ProductRepository()
-  //       .getVariantPrice(id: widget.id, quantity: _quantity);
-  //
-  //   print(response);
-  //   _totalPrice = response.data.price;
-  //   setState(() {});
-  // }
+  fetchVariantPrice() async {
+    var response = await ProductRepository()
+        .getVariantPrice(id: widget.id, quantity: _quantity);
+
+    print(response);
+    _totalPrice = response.data.price;
+    setState(() {});
+  }
 
   fetchProductDetails() async {
     var productDetailsResponse =
@@ -268,12 +268,20 @@ class _ProductDetailsState extends State<ProductDetails>
       _isInWishList = false;
       setState(() {});
       removeFromWishList();
+      print("remove to wish list");
+      ToastComponent.showDialog("Remove to wish list",
+          gravity: Toast.center, duration: Toast.lengthLong);
+
     } else {
       _isInWishList = true;
       setState(() {});
       addToWishList();
+      print("Add to wish list");
+      ToastComponent.showDialog("Add to wish list",
+          gravity: Toast.center, duration: Toast.lengthLong);
     }
   }
+
 
   fetchAndSetVariantWiseInfo({bool change_appbar_string = true}) async {
     var color_string = _colorList.length > 0
@@ -1023,7 +1031,7 @@ class _ProductDetailsState extends State<ProductDetails>
                         ),
                         Padding(
                           padding: EdgeInsets.only(
-                              top: 14,
+                              top: 1,
                               left: app_language_rtl.$ ? 0 : 14,
                               right: app_language_rtl.$ ? 14 : 0),
                           child: _productDetails != null
@@ -1059,20 +1067,20 @@ class _ProductDetailsState extends State<ProductDetails>
                         ),
                         Padding(
                           padding:
-                              EdgeInsets.only(top: 14, left: 14, right: 14),
+                              EdgeInsets.only(top: 1, left: 14, right: 14),
                           child: _productDetails != null
                               ? buildQuantityRow()
                               : ShimmerHelper().buildBasicShimmer(
-                                  height: 30.0,
+                                  height: 20.0,
                                 ),
                         ),
                         Padding(
-                          padding: EdgeInsets.only(top: 14, bottom: 14),
-                          child: _productDetails != null
-                              ? buildTotalPriceRow()
-                              : ShimmerHelper().buildBasicShimmer(
-                                  height: 30.0,
-                                ),
+                          padding: EdgeInsets.only(top: 1, bottom: 14),
+                          // child: _productDetails != null
+                          //     ? buildTotalPriceRow()
+                          //     : ShimmerHelper().buildBasicShimmer(
+                          //         height: 30.0,
+                          //       ),
                         ),
                       ],
                     ),
@@ -1123,7 +1131,9 @@ class _ProductDetailsState extends State<ProductDetails>
                             ],
                           ),
                         ),
-                        divider(),
+
+                     //commented code
+                     /*   divider(),
                         InkWell(
                           onTap: () {
                             if (_productDetails.video_link == "") {
@@ -1173,7 +1183,7 @@ class _ProductDetailsState extends State<ProductDetails>
                               ),
                             ),
                           ),
-                        ),
+                        ),*/
                         divider(),
                         InkWell(
                           onTap: () {
@@ -1214,7 +1224,9 @@ class _ProductDetailsState extends State<ProductDetails>
                             ),
                           ),
                         ),
-                        divider(),
+
+                       //commented code
+                       /* divider(),
                         InkWell(
                           onTap: () {
                             Navigator.push(context,
@@ -1257,7 +1269,7 @@ class _ProductDetailsState extends State<ProductDetails>
                               ),
                             ),
                           ),
-                        ),
+                        ),*/
                         divider(),
                         InkWell(
                           onTap: () {
@@ -1450,7 +1462,7 @@ class _ProductDetailsState extends State<ProductDetails>
                     ),
                   ),
                 ),
-          Container(
+      /*    Container(
             width: MediaQuery.of(context).size.width * (.5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -1468,8 +1480,8 @@ class _ProductDetailsState extends State<ProductDetails>
                 )
               ],
             ),
-          ),
-          Spacer(),
+          ),*/
+         // Spacer(),
           Visibility(
             visible: conversation_system_status.$,
             child: Container(
@@ -1550,12 +1562,12 @@ class _ProductDetailsState extends State<ProductDetails>
             width: 75,
             child: Text(
               AppLocalizations.of(context).quantity_ucf,
-              style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1)),
+              style: TextStyle(color: Color.fromRGBO(153, 153, 153, 1),fontSize: 16),
             ),
           ),
         ),
         Container(
-          height: 36,
+          height: 29,
           width: 120,
           /*decoration: BoxDecoration(
               border:
@@ -1568,7 +1580,7 @@ class _ProductDetailsState extends State<ProductDetails>
             children: [
               buildQuantityDownButton(),
               Container(
-                  width: 36,
+                  //width: 36,
                   child: Center(
                       child: Text(
                     _quantity.toString(),
@@ -1578,14 +1590,14 @@ class _ProductDetailsState extends State<ProductDetails>
             ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Text(
-            "(${_stock_txt})",
-            style: TextStyle(
-                color: Color.fromRGBO(152, 152, 153, 1), fontSize: 14),
-          ),
-        ),
+        // Padding(
+        //   padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        //   child: Text(
+        //     "(${_stock_txt})",
+        //     style: TextStyle(
+        //         color: Color.fromRGBO(152, 152, 153, 1), fontSize: 14),
+        //   ),
+        // ),
       ],
     );
   }
@@ -2003,45 +2015,62 @@ class _ProductDetailsState extends State<ProductDetails>
   Row buildMainPriceRow() {
     return Row(
       children: [
-        Text(
-          SystemConfig.systemCurrency != null
-              ? _singlePriceString.replaceAll(SystemConfig.systemCurrency.code,
-                  SystemConfig.systemCurrency.symbol)
-              : _singlePriceString,
-          // _singlePriceString,
-          style: TextStyle(
-              color: MyTheme.accent_color,
-              fontSize: 16.0,
-              fontWeight: FontWeight.w600),
-        ),
-        Visibility(
-          visible: _productDetails.has_discount,
-          child: Padding(
-            padding: EdgeInsets.only(left: 8.0),
-            child: Text(
-                SystemConfig.systemCurrency != null
-                    ? _productDetails.stroked_price.replaceAll(
-                        SystemConfig.systemCurrency.code,
-                        SystemConfig.systemCurrency.symbol)
-                    : _productDetails.stroked_price,
-                style: TextStyle(
-                  decoration: TextDecoration.lineThrough,
-                  color: Color.fromRGBO(224, 224, 225, 1),
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.normal,
-                )),
-          ),
-        ),
-        Visibility(
-          visible: _productDetails.has_discount,
-          child: Padding(
-            padding: EdgeInsets.only(left: 8.0),
-            child: Text(
-              "${_productDetails.discount}",
-              style: TextStyles.largeBoldAccentTexStyle(),
+        Column(
+          //mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Visibility(
+                  visible: _productDetails.has_discount,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 0.0),
+                    child: Text(
+                        SystemConfig.systemCurrency != null
+                            ? _productDetails.stroked_price.replaceAll(
+                            SystemConfig.systemCurrency.code,
+                            SystemConfig.systemCurrency.symbol)
+                            : _productDetails.stroked_price,
+                        style: TextStyle(
+                          decoration: TextDecoration.lineThrough,
+                          color: Color.fromRGBO(224, 224, 225, 1),
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.normal,
+                        )),
+                  ),
+                ),
+                SizedBox(width: 20,),
+                Visibility(
+                  visible: _productDetails.has_discount,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      //"${_productDetails.discount}",
+
+                      "${_productDetails.discount != null ? _productDetails.discount.replaceAll('-', ''): ""} Off",
+                      //style: TextStyles.largeBoldAccentTexStyle(),
+                      style: TextStyle(fontSize: 12,color: MyTheme.accent_color,fontWeight: FontWeight.w700,),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ),
+            Text(
+              SystemConfig.systemCurrency != null
+                  ? _singlePriceString.replaceAll(SystemConfig.systemCurrency.code,
+                      SystemConfig.systemCurrency.symbol)
+                  : _singlePriceString,
+              // _singlePriceString,
+              style: TextStyle(
+                  color: MyTheme.accent_color,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.w600),
+            ),
+
+
+          ],
         ),
+
       ],
     );
   }
@@ -2302,8 +2331,8 @@ class _ProductDetailsState extends State<ProductDetails>
                   return Btn.basic(
                     child: Text(
                       !controller.expanded
-                          ? AppLocalizations.of(context).view_more_ucf
-                          : AppLocalizations.of(context).show_less_ucf,
+                          ? AppLocalizations.of(context).show_less_ucf
+                          : AppLocalizations.of(context).view_more_ucf,
                       style: TextStyle(color: MyTheme.font_grey, fontSize: 11),
                     ),
                     onPressed: () {
@@ -2436,7 +2465,7 @@ class _ProductDetailsState extends State<ProductDetails>
 
   buildQuantityUpButton() => Container(
         decoration: BoxDecorations.buildCircularButtonDecoration_1(),
-        width: 36,
+        width: 26,
         child: IconButton(
             icon: Icon(FontAwesome.plus, size: 16, color: MyTheme.dark_grey),
             onPressed: () {
@@ -2453,7 +2482,7 @@ class _ProductDetailsState extends State<ProductDetails>
 
   buildQuantityDownButton() => Container(
       decoration: BoxDecorations.buildCircularButtonDecoration_1(),
-      width: 36,
+      width: 26,
       child: IconButton(
           icon: Icon(FontAwesome.minus, size: 16, color: MyTheme.dark_grey),
           onPressed: () {

@@ -54,7 +54,7 @@ class _ListProductCardState extends State<ListProductCard> {
                   ))),
           Container(
             padding: EdgeInsets.only(top: 10, left: 12,right: 12,bottom: 14),
-            width: 200,
+            width: 207,
             height: 100,
            //color: Colors.red,
             child: Column(

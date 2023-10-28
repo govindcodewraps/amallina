@@ -148,7 +148,7 @@ class _WishlistState extends State<Wishlist> {
                 image: _wishlistItems[index].product.thumbnail_image,
                 name: _wishlistItems[index].product.name,
                 main_price: _wishlistItems[index].product.base_price,
-                is_wholesale: _wishlistItems[index].product.isWholesale,
+               // is_wholesale: _wishlistItems[index].product.isWholesale,
                 stroked_price:"0",
                 has_discount: false,
             );

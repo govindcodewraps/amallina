@@ -223,7 +223,7 @@ class _CartState extends State<Cart> {
     }
 
     if (cart_ids.length == 0) {
-      ToastComponent.showDialog(
+    ToastComponent.showDialog(
           AppLocalizations.of(context).cart_is_empty,
           gravity: Toast.center,
           duration: Toast.lengthLong);
@@ -559,10 +559,16 @@ class _CartState extends State<Cart> {
       return Container(
           height: 100,
           child: Center(
-              child: Text(
+              child: Column(
+                children: [
+                  Icon(Icons.shopping_cart,size: 77,color: MyTheme.font_grey,),
+
+                  Text(
             AppLocalizations.of(context).cart_is_empty,
             style: TextStyle(color: MyTheme.font_grey),
-          )));
+          ),
+                ],
+              )));
     }
   }
 
