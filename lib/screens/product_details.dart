@@ -2151,7 +2151,7 @@ class _ProductDetailsState extends State<ProductDetails>
           label: "",
           icon: InkWell(
             onTap: () {
-             // onPressBuyNow(context);
+              onPressBuyNow(context);
             },
             child: Container(
               margin: EdgeInsets.only(left: 18, right: 18),

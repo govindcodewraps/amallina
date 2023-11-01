@@ -474,7 +474,7 @@ class _RegistrationState extends State<Registration> {
                     ),
                     onPressed: _isAgree
                         ? () {
-                            //onPressSignUp();
+                            onPressSignUp();
                           }
                         : null,
                   ),
@@ -503,10 +503,10 @@ class _RegistrationState extends State<Registration> {
                             fontWeight: FontWeight.w600),
                       ),
                       onTap: () {
-                        // Navigator.push(context,
-                        //     MaterialPageRoute(builder: (context) {
-                        //   return Login();
-                        // }));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return Login();
+                        }));
                       },
                     ),
                   ],

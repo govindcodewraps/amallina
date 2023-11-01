@@ -20,6 +20,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 
+import 'allproductscreen.dart';
+
 class Home extends StatefulWidget {
   Home({
     Key key,
@@ -629,12 +631,12 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           child: GestureDetector(
             onTap: () {
 
-              // commented code
-              // Navigator.push(context, MaterialPageRoute(builder: (context) {
-              //   return Filter(
-              //     selected_filter: "brands",
-              //   );
-              // }));
+             // commented code
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return Product_Filter(
+                  selected_filter: "brands",
+                );
+              }));
             },
             child: Container(
               height: 90,

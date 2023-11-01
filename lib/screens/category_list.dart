@@ -260,19 +260,19 @@ class _CategoryListState extends State<CategoryList> {
       decoration: BoxDecorations.buildBoxDecoration_1(),
       child: InkWell(
         onTap: (){
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) {
-          //       return CategoryProducts(
-          //         category_id:
-          //         categoryResponse.categories[index].id,
-          //         category_name:
-          //         categoryResponse.categories[index].name,
-          //       );
-          //     },
-          //   ),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return CategoryProducts(
+                  category_id:
+                  categoryResponse.categories[index].id,
+                  category_name:
+                  categoryResponse.categories[index].name,
+                );
+              },
+            ),
+          );
         },
         child: Container(
           //padding: EdgeInsets.all(8),

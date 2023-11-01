@@ -436,22 +436,22 @@ class _ProfileState extends State<Profile> {
             ],
           ),
 
-          if(is_logged_in.$)
-          Column(
-            children: [
-              buildBottomVerticalCardListItem("assets/shop.png",
-                  LangText(context).local.followed_sellers_ucf,
-                  onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return FollowedSellers();
-                }));
-              }),
-              Divider(
-                thickness: 1,
-                color: MyTheme.light_grey,
-              ),
-            ],
-          ),
+          // if(is_logged_in.$)
+          // Column(
+          //   children: [
+          //     buildBottomVerticalCardListItem("assets/shop.png",
+          //         LangText(context).local.followed_sellers_ucf,
+          //         onPressed: () {
+          //       Navigator.push(context, MaterialPageRoute(builder: (context) {
+          //         return FollowedSellers();
+          //       }));
+          //     }),
+          //     Divider(
+          //       thickness: 1,
+          //       color: MyTheme.light_grey,
+          //     ),
+          //   ],
+          // ),
 
           if(is_logged_in.$)
           Column(

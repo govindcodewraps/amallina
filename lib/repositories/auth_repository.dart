@@ -33,8 +33,9 @@ class AuthRepository {
           "App-Language": app_language.$,
         },
         body: post_body);
-
+    print("Login Response ${response.body}");
     return loginResponseFromJson(response.body);
+
   }
 
   Future<LoginResponse> getSocialLoginResponse(@required String social_provider,
