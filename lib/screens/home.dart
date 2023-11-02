@@ -596,9 +596,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             child: GestureDetector(
               onTap: () {
                 // commented code
-                // Navigator.push(context, MaterialPageRoute(builder: (context) {
-                //   return TodaysDealProducts();
-                // }));
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return TodaysDealProducts();
+                }));
               },
               child: Container(
                 height: 90,
@@ -794,7 +794,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
     } else if (homeData.carouselImageList.length > 0) {
       return CarouselSlider(
         options: CarouselOptions(
-            aspectRatio: 110 / 50,
+            //aspectRatio: 110 / 40,
+            aspectRatio: 320 / 125,
             viewportFraction: 1,
             initialPage: 0,
             enableInfiniteScroll: true,

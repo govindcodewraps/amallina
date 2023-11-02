@@ -341,8 +341,14 @@ class _CartState extends State<Cart> {
               height: 40,
               width: double.infinity,
               decoration: BoxDecoration(
+                border: Border.all(
+                  color: MyTheme.accent_color, // Border color
+                  width: 1.0,                 // Border width
+                ),
                   borderRadius: BorderRadius.circular(6.0),
-                  color: MyTheme.soft_accent_color),
+
+                //  color: MyTheme.soft_accent_color
+              ),
               child: Row(
                 children: [
                   Padding(

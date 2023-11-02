@@ -148,7 +148,7 @@ class _WishlistState extends State<Wishlist> {
                 image: _wishlistItems[index].product.thumbnail_image,
                 name: _wishlistItems[index].product.name,
                 main_price: _wishlistItems[index].product.base_price,
-                is_wholesale: _wishlistItems[index].product.isWholesale,
+                //is_wholesale: _wishlistItems[index].product.isWholesale,
                 stroked_price:"0",
                 has_discount: false,
             );
@@ -171,10 +171,20 @@ class _WishlistState extends State<Wishlist> {
       );
     } else {
       return Container(
-          height: 100,
-          child: Center(
-              child: Text(AppLocalizations.of(context).no_item_is_available,
-                  style: TextStyle(color: MyTheme.font_grey))));
+          //height: 100,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 144),
+            child: Center(
+                child: Column(
+                  children: [
+                    Icon(Icons.remove_shopping_cart,size: 70,color: MyTheme.font_grey,),
+                    Text(
+                      "No items in the Wishlist",
+                        //AppLocalizations.of(context).no_item_is_available,
+                        style: TextStyle(color: MyTheme.font_grey,fontSize: 15)),
+                  ],
+                )),
+          ));
     }
   }
 

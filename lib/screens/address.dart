@@ -510,11 +510,12 @@ class _AddressState extends State<Address> {
                   child: Btn.minWidthFixHeight(
                     minWidth: MediaQuery.of(context).size.width - 16,
                     height: 90,
-                    color: MyTheme.amber,
+                   // color: MyTheme.amber,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
                         side: BorderSide(
-                            color: Colors.amber.shade600, width: 1.0)),
+                            color:MyTheme.accent_color, width: 1.0)),
+                           // color: Colors.amber.shade600, width: 1.0)),
                     child: Column(
                       children: [
                         Text(
@@ -1696,11 +1697,11 @@ class _AddressState extends State<Address> {
             value: MenuOptions.Delete,
             child: Text(AppLocalizations.of(context).delete_ucf),
           ),
-          PopupMenuItem<MenuOptions>(
-            value: MenuOptions.AddLocation,
-            child:
-                Text(AppLocalizations.of(context).add_location_ucf),
-          ),
+          // PopupMenuItem<MenuOptions>(
+          //   value: MenuOptions.AddLocation,
+          //   child:
+          //       Text(AppLocalizations.of(context).add_location_ucf),
+          // ),
         ],
       ),
     );
