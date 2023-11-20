@@ -978,7 +978,7 @@ Navigator.pop(loadingcontext);
                     fontWeight: FontWeight.w600),
               ),
               onPressed: () {
-                onPressPlaceOrderOrProceed();
+                //onPressPlaceOrderOrProceed();
               },
             )
           ],
