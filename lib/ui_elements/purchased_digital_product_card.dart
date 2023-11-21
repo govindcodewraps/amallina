@@ -2,11 +2,11 @@ import 'dart:io';
 import 'dart:isolate';
 import 'dart:ui';
 
-import 'package:hardware_lo/app_config.dart';
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
-import 'package:hardware_lo/my_theme.dart';
+import 'package:amallina/app_config.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/custom/toast_component.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
+import 'package:amallina/my_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:path_provider/path_provider.dart';

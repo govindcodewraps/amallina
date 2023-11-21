@@ -664,23 +664,23 @@ class _ProfileEditState extends State<ProfileEdit> {
 
 import 'dart:convert';
 
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/custom/btn.dart';
-import 'package:hardware_lo/custom/device_info.dart';
-import 'package:hardware_lo/custom/lang_text.dart';
-import 'package:hardware_lo/custom/useful_elements.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/custom/btn.dart';
+import 'package:amallina/custom/device_info.dart';
+import 'package:amallina/custom/lang_text.dart';
+import 'package:amallina/custom/useful_elements.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/my_theme.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
-import 'package:hardware_lo/app_config.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
+import 'package:amallina/app_config.dart';
+import 'package:amallina/custom/toast_component.dart';
 import 'package:toast/toast.dart';
-import 'package:hardware_lo/custom/input_decorations.dart';
-import 'package:hardware_lo/repositories/profile_repository.dart';
+import 'package:amallina/custom/input_decorations.dart';
+import 'package:amallina/repositories/profile_repository.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:hardware_lo/helpers/file_helper.dart';
+import 'package:amallina/helpers/file_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileEdit extends StatefulWidget {

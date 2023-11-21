@@ -1,13 +1,13 @@
-import 'package:hardware_lo/custom/btn.dart';
+import 'package:amallina/custom/btn.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/screens/order_details.dart';
-import 'package:hardware_lo/screens/login.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
-import 'package:hardware_lo/repositories/profile_repository.dart';
+import 'package:amallina/screens/order_details.dart';
+import 'package:amallina/screens/login.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
+import 'package:amallina/repositories/profile_repository.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:one_context/one_context.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
+import 'package:amallina/custom/toast_component.dart';
 import 'package:toast/toast.dart';
 
 final FirebaseMessaging _fcm = FirebaseMessaging.instance;

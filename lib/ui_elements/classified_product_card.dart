@@ -1,13 +1,13 @@
 import 'dart:async';
 
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/helpers/system_config.dart';
-import 'package:hardware_lo/my_theme.dart';
-import 'package:hardware_lo/screens/classified_ads/classified_product_details.dart';
-import 'package:hardware_lo/screens/digital_product/digital_product_details.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/helpers/system_config.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/screens/classified_ads/classified_product_details.dart';
+import 'package:amallina/screens/digital_product/digital_product_details.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/screens/product_details.dart';
-import 'package:hardware_lo/app_config.dart';
+import 'package:amallina/screens/product_details.dart';
+import 'package:amallina/app_config.dart';
 class ClassifiedAdsCard extends StatefulWidget {
   int id;
   String image;

@@ -1,17 +1,18 @@
-import 'package:hardware_lo/app_config.dart';
-import 'package:hardware_lo/custom/aiz_image.dart';
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
-import 'package:hardware_lo/helpers/shimmer_helper.dart';
-import 'package:hardware_lo/my_theme.dart';
-import 'package:hardware_lo/presenter/home_presenter.dart';
-import 'package:hardware_lo/screens/category_products.dart';
-import 'package:hardware_lo/screens/filter.dart';
-import 'package:hardware_lo/screens/flash_deal_list.dart';
-import 'package:hardware_lo/screens/todays_deal_products.dart';
-import 'package:hardware_lo/screens/top_selling_products.dart';
-import 'package:hardware_lo/ui_elements/mini_product_card.dart';
-import 'package:hardware_lo/ui_elements/product_card.dart';
+import 'package:amallina/app_config.dart';
+import 'package:amallina/custom/aiz_image.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
+import 'package:amallina/helpers/shimmer_helper.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/presenter/home_presenter.dart';
+import 'package:amallina/screens/category_products.dart';
+import 'package:amallina/screens/filter.dart';
+import 'package:amallina/screens/flash_deal_list.dart';
+import 'package:amallina/screens/todays_deal_products.dart';
+import 'package:amallina/screens/top_selling_products.dart';
+import 'package:amallina/screens/wishlist.dart';
+import 'package:amallina/ui_elements/mini_product_card.dart';
+import 'package:amallina/ui_elements/product_card.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,11 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
+import 'package:toast/toast.dart';
+
+import '../custom/toast_component.dart';
+import '../presenter/cart_counter.dart';
+import 'cart.dart';
 
 class Home extends StatefulWidget {
   Home({
@@ -38,6 +44,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with TickerProviderStateMixin {
   HomePresenter homePresenter;
+  CartCounter counter = CartCounter();
 
   @override
   void initState() {
@@ -100,9 +107,31 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                                 SizedBox(width: 2,),
                                 Image.asset("assets/notificationlogo.png"),
                                 SizedBox(width: 2,),
-                                Image.asset("assets/heartlogo.png"),
+                                InkWell(
+                                    onTap: (){
+
+                                      is_logged_in.$ ?
+                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>Wishlist()))
+                                          :
+                                      ToastComponent.showDialog(AppLocalizations.of(context).you_need_to_log_in,
+                                          gravity: Toast.center, duration: Toast.lengthLong);
+                                    },
+                                    child: Image.asset("assets/heartlogo.png")),
                                 SizedBox(width: 2,),
-                                Image.asset("assets/cartlogo.png"),
+                                InkWell(
+                                    onTap: (){
+
+                                      is_logged_in.$ ?
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=>  Cart(
+                                        has_bottomnav: true,
+                                        from_navigation: true,
+                                        counter: counter,
+                                      ),))
+                                          :
+                                      ToastComponent.showDialog(AppLocalizations.of(context).you_need_to_log_in,
+                                          gravity: Toast.center, duration: Toast.lengthLong);
+                                    },
+                                    child: Image.asset("assets/cartlogo.png")),
                                 SizedBox(width: 2,),
                               ],)
 

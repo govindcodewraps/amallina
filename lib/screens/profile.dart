@@ -1,40 +1,40 @@
 import 'dart:async';
 
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/custom/btn.dart';
-import 'package:hardware_lo/custom/device_info.dart';
-import 'package:hardware_lo/custom/lang_text.dart';
-import 'package:hardware_lo/helpers/auth_helper.dart';
-import 'package:hardware_lo/presenter/home_presenter.dart';
-import 'package:hardware_lo/screens/auction_products.dart';
-import 'package:hardware_lo/screens/change_language.dart';
-import 'package:hardware_lo/screens/classified_ads/classified_ads.dart';
-import 'package:hardware_lo/screens/classified_ads/my_classified_ads.dart';
-import 'package:hardware_lo/screens/currency_change.dart';
-import 'package:hardware_lo/screens/digital_product/digital_products.dart';
-import 'package:hardware_lo/screens/digital_product/purchased_digital_produts.dart';
-import 'package:hardware_lo/screens/filter.dart';
-import 'package:hardware_lo/screens/followed_sellers.dart';
-import 'package:hardware_lo/screens/login.dart';
-import 'package:hardware_lo/screens/main.dart';
-import 'package:hardware_lo/screens/messenger_list.dart';
-import 'package:hardware_lo/screens/whole_sale_products.dart';
-import 'package:hardware_lo/screens/wishlist.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/custom/btn.dart';
+import 'package:amallina/custom/device_info.dart';
+import 'package:amallina/custom/lang_text.dart';
+import 'package:amallina/helpers/auth_helper.dart';
+import 'package:amallina/presenter/home_presenter.dart';
+import 'package:amallina/screens/auction_products.dart';
+import 'package:amallina/screens/change_language.dart';
+import 'package:amallina/screens/classified_ads/classified_ads.dart';
+import 'package:amallina/screens/classified_ads/my_classified_ads.dart';
+import 'package:amallina/screens/currency_change.dart';
+import 'package:amallina/screens/digital_product/digital_products.dart';
+import 'package:amallina/screens/digital_product/purchased_digital_produts.dart';
+import 'package:amallina/screens/filter.dart';
+import 'package:amallina/screens/followed_sellers.dart';
+import 'package:amallina/screens/login.dart';
+import 'package:amallina/screens/main.dart';
+import 'package:amallina/screens/messenger_list.dart';
+import 'package:amallina/screens/whole_sale_products.dart';
+import 'package:amallina/screens/wishlist.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/my_theme.dart';
-import 'package:hardware_lo/ui_sections/drawer.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
-import 'package:hardware_lo/app_config.dart';
-import 'package:hardware_lo/screens/wallet.dart';
-import 'package:hardware_lo/screens/profile_edit.dart';
-import 'package:hardware_lo/screens/address.dart';
-import 'package:hardware_lo/screens/order_list.dart';
-import 'package:hardware_lo/screens/club_point.dart';
-import 'package:hardware_lo/screens/refund_request.dart';
-import 'package:hardware_lo/repositories/profile_repository.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/ui_sections/drawer.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
+import 'package:amallina/app_config.dart';
+import 'package:amallina/screens/wallet.dart';
+import 'package:amallina/screens/profile_edit.dart';
+import 'package:amallina/screens/address.dart';
+import 'package:amallina/screens/order_list.dart';
+import 'package:amallina/screens/club_point.dart';
+import 'package:amallina/screens/refund_request.dart';
+import 'package:amallina/repositories/profile_repository.dart';
+import 'package:amallina/custom/toast_component.dart';
 import 'package:provider/provider.dart';
 import 'package:route_transitions/route_transitions.dart';
 import 'package:toast/toast.dart';
@@ -439,22 +439,22 @@ class _ProfileState extends State<Profile> {
             ],
           ),
 
-          if(is_logged_in.$)
-          Column(
-            children: [
-              buildBottomVerticalCardListItem("assets/shop.png",
-                  LangText(context).local.followed_sellers_ucf,
-                  onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return FollowedSellers();
-                }));
-              }),
-              Divider(
-                thickness: 1,
-                color: MyTheme.light_grey,
-              ),
-            ],
-          ),
+          // if(is_logged_in.$)
+          // Column(
+          //   children: [
+          //     buildBottomVerticalCardListItem("assets/shop.png",
+          //         LangText(context).local.followed_sellers_ucf,
+          //         onPressed: () {
+          //       Navigator.push(context, MaterialPageRoute(builder: (context) {
+          //         return FollowedSellers();
+          //       }));
+          //     }),
+          //     Divider(
+          //       thickness: 1,
+          //       color: MyTheme.light_grey,
+          //     ),
+          //   ],
+          // ),
 
           if(is_logged_in.$)
           Column(

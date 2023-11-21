@@ -1,16 +1,16 @@
-import 'package:hardware_lo/custom/btn.dart';
-import 'package:hardware_lo/my_theme.dart';
-import 'package:hardware_lo/ui_elements/auth_ui.dart';
+import 'package:amallina/custom/btn.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/ui_elements/auth_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hardware_lo/custom/input_decorations.dart';
-import 'package:hardware_lo/custom/intl_phone_input.dart';
+import 'package:amallina/custom/input_decorations.dart';
+import 'package:amallina/custom/intl_phone_input.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-import 'package:hardware_lo/screens/password_otp.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
+import 'package:amallina/screens/password_otp.dart';
+import 'package:amallina/custom/toast_component.dart';
 import 'package:toast/toast.dart';
-import 'package:hardware_lo/repositories/auth_repository.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
+import 'package:amallina/repositories/auth_repository.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 

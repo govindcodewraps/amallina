@@ -222,16 +222,18 @@ class _CheckoutState extends State<Checkout> {
     }
 
     if (_selected_payment_method == "stripe_payment") {
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return StripeScreen(
-          amount: _grandTotalValue,
-          payment_type: payment_type,
-          payment_method_key: _selected_payment_method_key,
-          package_id: widget.packageId.toString(),
-        );
-      })).then((value) {
-        onPopped(value);
-      });
+
+      // Navigator.push(context, MaterialPageRoute(builder: (context) {
+      //   return StripeScreen(
+      //     amount: _grandTotalValue,
+      //     payment_type: payment_type,
+      //     payment_method_key: _selected_payment_method_key,
+      //     package_id: widget.packageId.toString(),
+      //   );
+      // })).then((value) {
+      //   onPopped(value);
+      // });
+
     } else if (_selected_payment_method == "paypal_payment") {
 
       Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -978,7 +980,7 @@ Navigator.pop(loadingcontext);
                     fontWeight: FontWeight.w600),
               ),
               onPressed: () {
-                //onPressPlaceOrderOrProceed();
+                onPressPlaceOrderOrProceed();
               },
             )
           ],
