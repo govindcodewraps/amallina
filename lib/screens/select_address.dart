@@ -561,7 +561,7 @@ class _SelectAddressState extends State<SelectAddress> {
                     fontWeight: FontWeight.w600),
               ),
               onPressed: () {
-                //onPressProceed(context);
+                onPressProceed(context);
               },
             )
           ],
