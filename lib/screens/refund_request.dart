@@ -1,13 +1,13 @@
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/custom/device_info.dart';
-import 'package:hardware_lo/custom/useful_elements.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/custom/device_info.dart';
+import 'package:amallina/custom/useful_elements.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/my_theme.dart';
-import 'package:hardware_lo/repositories/refund_request_repository.dart';
-import 'package:hardware_lo/helpers/shimmer_helper.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/repositories/refund_request_repository.dart';
+import 'package:amallina/helpers/shimmer_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
 
 class RefundRequest extends StatefulWidget {
   @override

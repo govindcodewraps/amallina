@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-import 'package:hardware_lo/app_config.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
-import 'package:hardware_lo/my_theme.dart';
-import 'package:hardware_lo/repositories/payment_repository.dart';
-import 'package:hardware_lo/repositories/profile_repository.dart';
-import 'package:hardware_lo/screens/order_list.dart';
-import 'package:hardware_lo/screens/wallet.dart';
+import 'package:amallina/app_config.dart';
+import 'package:amallina/custom/toast_component.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/repositories/payment_repository.dart';
+import 'package:amallina/repositories/profile_repository.dart';
+import 'package:amallina/screens/order_list.dart';
+import 'package:amallina/screens/wallet.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

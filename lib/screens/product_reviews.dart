@@ -1,23 +1,21 @@
-import 'package:hardware_lo/custom/btn.dart';
+import 'package:amallina/custom/btn.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/my_theme.dart';
+import 'package:amallina/my_theme.dart';
 import 'dart:ui';
 import 'package:flutter/painting.dart';
 import 'dart:async';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
+import 'package:amallina/custom/toast_component.dart';
 import 'package:toast/toast.dart';
 import 'package:flutter/services.dart';
 import 'package:expandable/expandable.dart';
-//import 'package:hardware_lo/repositories/review_repositories.dart';
-import 'package:hardware_lo/app_config.dart';
-import 'package:hardware_lo/helpers/shimmer_helper.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
+import 'package:amallina/repositories/review_repositories.dart';
+import 'package:amallina/app_config.dart';
+import 'package:amallina/helpers/shimmer_helper.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import '../repositories/review_repositories.dart';
 
 class ProductReviews extends StatefulWidget {
   int id;

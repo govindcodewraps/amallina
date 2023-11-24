@@ -1,32 +1,32 @@
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/custom/btn.dart';
-import 'package:hardware_lo/custom/enum_classes.dart';
-import 'package:hardware_lo/helpers/system_config.dart';
-import 'package:hardware_lo/screens/payment_method_screen/khalti_screen.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/custom/btn.dart';
+import 'package:amallina/custom/enum_classes.dart';
+import 'package:amallina/helpers/system_config.dart';
+import 'package:amallina/screens/payment_method_screen/khalti_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/my_theme.dart';
-import 'package:hardware_lo/screens/order_list.dart';
-import 'package:hardware_lo/screens/payment_method_screen/stripe_screen.dart';
-import 'package:hardware_lo/screens/payment_method_screen/paypal_screen.dart';
-import 'package:hardware_lo/screens/payment_method_screen/razorpay_screen.dart';
-import 'package:hardware_lo/screens/payment_method_screen/paystack_screen.dart';
-import 'package:hardware_lo/screens/payment_method_screen/iyzico_screen.dart';
-import 'package:hardware_lo/screens/payment_method_screen/bkash_screen.dart';
-import 'package:hardware_lo/screens/payment_method_screen/nagad_screen.dart';
-import 'package:hardware_lo/screens/payment_method_screen/sslcommerz_screen.dart';
-import 'package:hardware_lo/screens/payment_method_screen/flutterwave_screen.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/screens/order_list.dart';
+import 'package:amallina/screens/payment_method_screen/stripe_screen.dart';
+import 'package:amallina/screens/payment_method_screen/paypal_screen.dart';
+import 'package:amallina/screens/payment_method_screen/razorpay_screen.dart';
+import 'package:amallina/screens/payment_method_screen/paystack_screen.dart';
+import 'package:amallina/screens/payment_method_screen/iyzico_screen.dart';
+import 'package:amallina/screens/payment_method_screen/bkash_screen.dart';
+import 'package:amallina/screens/payment_method_screen/nagad_screen.dart';
+import 'package:amallina/screens/payment_method_screen/sslcommerz_screen.dart';
+import 'package:amallina/screens/payment_method_screen/flutterwave_screen.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
-import 'package:hardware_lo/repositories/payment_repository.dart';
-import 'package:hardware_lo/repositories/cart_repository.dart';
-import 'package:hardware_lo/repositories/coupon_repository.dart';
-import 'package:hardware_lo/helpers/shimmer_helper.dart';
-import 'package:hardware_lo/app_config.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
+import 'package:amallina/repositories/payment_repository.dart';
+import 'package:amallina/repositories/cart_repository.dart';
+import 'package:amallina/repositories/coupon_repository.dart';
+import 'package:amallina/helpers/shimmer_helper.dart';
+import 'package:amallina/app_config.dart';
+import 'package:amallina/custom/toast_component.dart';
 import 'package:toast/toast.dart';
-import 'package:hardware_lo/screens/payment_method_screen/offline_screen.dart';
-import 'package:hardware_lo/screens/payment_method_screen/paytm_screen.dart';
+import 'package:amallina/screens/payment_method_screen/offline_screen.dart';
+import 'package:amallina/screens/payment_method_screen/paytm_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Checkout extends StatefulWidget {
@@ -222,16 +222,18 @@ class _CheckoutState extends State<Checkout> {
     }
 
     if (_selected_payment_method == "stripe_payment") {
-      Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return StripeScreen(
-          amount: _grandTotalValue,
-          payment_type: payment_type,
-          payment_method_key: _selected_payment_method_key,
-          package_id: widget.packageId.toString(),
-        );
-      })).then((value) {
-        onPopped(value);
-      });
+
+      // Navigator.push(context, MaterialPageRoute(builder: (context) {
+      //   return StripeScreen(
+      //     amount: _grandTotalValue,
+      //     payment_type: payment_type,
+      //     payment_method_key: _selected_payment_method_key,
+      //     package_id: widget.packageId.toString(),
+      //   );
+      // })).then((value) {
+      //   onPopped(value);
+      // });
+
     } else if (_selected_payment_method == "paypal_payment") {
 
       Navigator.push(context, MaterialPageRoute(builder: (context) {

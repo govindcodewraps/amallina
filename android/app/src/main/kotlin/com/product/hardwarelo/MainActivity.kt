@@ -1,4 +1,4 @@
-package com.product.hardwarelo
+package com.amallina
 
 import io.flutter.embedding.android.FlutterActivity
 

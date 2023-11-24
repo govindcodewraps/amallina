@@ -1,5 +1,5 @@
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
-import 'package:hardware_lo/my_theme.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
+import 'package:amallina/my_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';

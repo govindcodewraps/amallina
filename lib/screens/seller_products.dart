@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/my_theme.dart';
-import 'package:hardware_lo/ui_elements/product_card.dart';
-import 'package:hardware_lo/repositories/product_repository.dart';
-import 'package:hardware_lo/helpers/shimmer_helper.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/ui_elements/product_card.dart';
+import 'package:amallina/repositories/product_repository.dart';
+import 'package:amallina/helpers/shimmer_helper.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 

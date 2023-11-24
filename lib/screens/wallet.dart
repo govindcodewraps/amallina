@@ -1,22 +1,22 @@
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/custom/btn.dart';
-import 'package:hardware_lo/custom/device_info.dart';
-import 'package:hardware_lo/custom/enum_classes.dart';
-import 'package:hardware_lo/custom/useful_elements.dart';
-import 'package:hardware_lo/screens/checkout.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/custom/btn.dart';
+import 'package:amallina/custom/device_info.dart';
+import 'package:amallina/custom/enum_classes.dart';
+import 'package:amallina/custom/useful_elements.dart';
+import 'package:amallina/screens/checkout.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/my_theme.dart';
+import 'package:amallina/my_theme.dart';
 import 'dart:ui';
 import 'package:flutter/painting.dart';
 import 'package:flutter/services.dart';
-import 'package:hardware_lo/helpers/reg_ex_inpur_formatter.dart';
-import 'package:hardware_lo/repositories/wallet_repository.dart';
-import 'package:hardware_lo/helpers/shimmer_helper.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
+import 'package:amallina/helpers/reg_ex_inpur_formatter.dart';
+import 'package:amallina/repositories/wallet_repository.dart';
+import 'package:amallina/helpers/shimmer_helper.dart';
+import 'package:amallina/custom/toast_component.dart';
 import 'package:toast/toast.dart';
-import 'package:hardware_lo/screens/main.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
+import 'package:amallina/screens/main.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 

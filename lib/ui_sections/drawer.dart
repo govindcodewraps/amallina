@@ -1,18 +1,18 @@
-import 'package:hardware_lo/screens/change_language.dart';
+import 'package:amallina/screens/change_language.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
-import 'package:hardware_lo/screens/main.dart';
-import 'package:hardware_lo/screens/profile.dart';
-import 'package:hardware_lo/screens/order_list.dart';
-import 'package:hardware_lo/screens/wishlist.dart';
+import 'package:amallina/screens/main.dart';
+import 'package:amallina/screens/profile.dart';
+import 'package:amallina/screens/order_list.dart';
+import 'package:amallina/screens/wishlist.dart';
 
-import 'package:hardware_lo/screens/login.dart';
-import 'package:hardware_lo/screens/messenger_list.dart';
-import 'package:hardware_lo/screens/wallet.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
-import 'package:hardware_lo/app_config.dart';
-import 'package:hardware_lo/helpers/auth_helper.dart';
+import 'package:amallina/screens/login.dart';
+import 'package:amallina/screens/messenger_list.dart';
+import 'package:amallina/screens/wallet.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
+import 'package:amallina/app_config.dart';
+import 'package:amallina/helpers/auth_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MainDrawer extends StatefulWidget {

@@ -1,20 +1,20 @@
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/custom/btn.dart';
-import 'package:hardware_lo/custom/device_info.dart';
-import 'package:hardware_lo/custom/useful_elements.dart';
-import 'package:hardware_lo/helpers/shimmer_helper.dart';
-import 'package:hardware_lo/presenter/bottom_appbar_index.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/custom/btn.dart';
+import 'package:amallina/custom/device_info.dart';
+import 'package:amallina/custom/useful_elements.dart';
+import 'package:amallina/helpers/shimmer_helper.dart';
+import 'package:amallina/presenter/bottom_appbar_index.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/my_theme.dart';
-import 'package:hardware_lo/ui_sections/drawer.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/ui_sections/drawer.dart';
+import 'package:amallina/custom/toast_component.dart';
 import 'package:toast/toast.dart';
-import 'package:hardware_lo/screens/category_products.dart';
-import 'package:hardware_lo/repositories/category_repository.dart';
+import 'package:amallina/screens/category_products.dart';
+import 'package:amallina/repositories/category_repository.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:hardware_lo/app_config.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
+import 'package:amallina/app_config.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CategoryList extends StatefulWidget {

@@ -1,16 +1,16 @@
-import 'package:hardware_lo/custom/useful_elements.dart';
-import 'package:hardware_lo/ui_elements/product_card.dart';
+import 'package:amallina/custom/useful_elements.dart';
+import 'package:amallina/ui_elements/product_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/my_theme.dart';
-import 'package:hardware_lo/helpers/shimmer_helper.dart';
-import 'package:hardware_lo/app_config.dart';
-import 'package:hardware_lo/repositories/wishlist_repository.dart';
-import 'package:hardware_lo/screens/product_details.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/helpers/shimmer_helper.dart';
+import 'package:amallina/app_config.dart';
+import 'package:amallina/repositories/wishlist_repository.dart';
+import 'package:amallina/screens/product_details.dart';
+import 'package:amallina/custom/toast_component.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:toast/toast.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
@@ -148,7 +148,7 @@ class _WishlistState extends State<Wishlist> {
                 image: _wishlistItems[index].product.thumbnail_image,
                 name: _wishlistItems[index].product.name,
                 main_price: _wishlistItems[index].product.base_price,
-                //is_wholesale: _wishlistItems[index].product.isWholesale,
+               // is_wholesale: _wishlistItems[index].product.isWholesale,
                 stroked_price:"0",
                 has_discount: false,
             );
@@ -171,20 +171,10 @@ class _WishlistState extends State<Wishlist> {
       );
     } else {
       return Container(
-          //height: 100,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 144),
-            child: Center(
-                child: Column(
-                  children: [
-                    Icon(Icons.remove_shopping_cart,size: 70,color: MyTheme.font_grey,),
-                    Text(
-                      "No items in the Wishlist",
-                        //AppLocalizations.of(context).no_item_is_available,
-                        style: TextStyle(color: MyTheme.font_grey,fontSize: 15)),
-                  ],
-                )),
-          ));
+          height: 100,
+          child: Center(
+              child: Text(AppLocalizations.of(context).no_item_is_available,
+                  style: TextStyle(color: MyTheme.font_grey))));
     }
   }
 

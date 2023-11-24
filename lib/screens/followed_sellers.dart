@@ -1,16 +1,15 @@
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/custom/device_info.dart';
+import 'package:amallina/custom/lang_text.dart';
+import 'package:amallina/custom/style.dart';
+import 'package:amallina/custom/toast_component.dart';
+import 'package:amallina/data_model/followed_sellers_response.dart';
+import 'package:amallina/helpers/shimmer_helper.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/repositories/shop_repository.dart';
+import 'package:amallina/screens/seller_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:hardware_lo/screens/seller_details.dart';
-
-import '../custom/box_decorations.dart';
-import '../custom/device_info.dart';
-import '../custom/lang_text.dart';
-import '../custom/style.dart';
-import '../custom/toast_component.dart';
-import '../data_model/followed_sellers_response.dart';
-import '../helpers/shimmer_helper.dart';
-import '../my_theme.dart';
-import '../repositories/shop_repository.dart';
 
 
 class FollowedSellers extends StatefulWidget {

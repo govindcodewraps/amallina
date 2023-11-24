@@ -1,7 +1,7 @@
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/my_theme.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/my_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/screens/seller_details.dart';
+import 'package:amallina/screens/seller_details.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ShopSquareCard extends StatefulWidget {

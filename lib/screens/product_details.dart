@@ -1,31 +1,31 @@
 import 'dart:async';
 
-import 'package:hardware_lo/app_config.dart';
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/custom/btn.dart';
-import 'package:hardware_lo/custom/device_info.dart';
-import 'package:hardware_lo/custom/text_styles.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
-import 'package:hardware_lo/helpers/color_helper.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
-import 'package:hardware_lo/helpers/shimmer_helper.dart';
-import 'package:hardware_lo/helpers/system_config.dart';
-import 'package:hardware_lo/my_theme.dart';
-import 'package:hardware_lo/presenter/cart_counter.dart';
-import 'package:hardware_lo/repositories/cart_repository.dart';
-import 'package:hardware_lo/repositories/chat_repository.dart';
-import 'package:hardware_lo/repositories/product_repository.dart';
-import 'package:hardware_lo/repositories/wishlist_repository.dart';
-import 'package:hardware_lo/screens/brand_products.dart';
-import 'package:hardware_lo/screens/cart.dart';
-import 'package:hardware_lo/screens/chat.dart';
-import 'package:hardware_lo/screens/common_webview_screen.dart';
-import 'package:hardware_lo/screens/login.dart';
-import 'package:hardware_lo/screens/product_reviews.dart';
-import 'package:hardware_lo/screens/seller_details.dart';
-import 'package:hardware_lo/screens/video_description_screen.dart';
-import 'package:hardware_lo/ui_elements/list_product_card.dart';
-import 'package:hardware_lo/ui_elements/mini_product_card.dart';
+import 'package:amallina/app_config.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/custom/btn.dart';
+import 'package:amallina/custom/device_info.dart';
+import 'package:amallina/custom/text_styles.dart';
+import 'package:amallina/custom/toast_component.dart';
+import 'package:amallina/helpers/color_helper.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
+import 'package:amallina/helpers/shimmer_helper.dart';
+import 'package:amallina/helpers/system_config.dart';
+import 'package:amallina/my_theme.dart';
+import 'package:amallina/presenter/cart_counter.dart';
+import 'package:amallina/repositories/cart_repository.dart';
+import 'package:amallina/repositories/chat_repository.dart';
+import 'package:amallina/repositories/product_repository.dart';
+import 'package:amallina/repositories/wishlist_repository.dart';
+import 'package:amallina/screens/brand_products.dart';
+import 'package:amallina/screens/cart.dart';
+import 'package:amallina/screens/chat.dart';
+import 'package:amallina/screens/common_webview_screen.dart';
+import 'package:amallina/screens/login.dart';
+import 'package:amallina/screens/product_reviews.dart';
+import 'package:amallina/screens/seller_details.dart';
+import 'package:amallina/screens/video_description_screen.dart';
+import 'package:amallina/ui_elements/list_product_card.dart';
+import 'package:amallina/ui_elements/mini_product_card.dart';
 import 'package:badges/badges.dart' as badges;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:expandable/expandable.dart';
@@ -268,12 +268,20 @@ class _ProductDetailsState extends State<ProductDetails>
       _isInWishList = false;
       setState(() {});
       removeFromWishList();
+      print("remove to wish list");
+      ToastComponent.showDialog("Remove to wish list",
+          gravity: Toast.center, duration: Toast.lengthLong);
+
     } else {
       _isInWishList = true;
       setState(() {});
       addToWishList();
+      print("Add to wish list");
+      ToastComponent.showDialog("Add to wish list",
+          gravity: Toast.center, duration: Toast.lengthLong);
     }
   }
+
 
   fetchAndSetVariantWiseInfo({bool change_appbar_string = true}) async {
     var color_string = _colorList.length > 0
@@ -909,7 +917,7 @@ class _ProductDetailsState extends State<ProductDetails>
                       SizedBox(width: 15),
                       InkWell(
                         onTap: () {
-                          //onPressShare(context);
+                          onPressShare(context);
                         },
                         child: Container(
                           decoration:
@@ -2116,7 +2124,7 @@ class _ProductDetailsState extends State<ProductDetails>
           label: '',
           icon: InkWell(
             onTap: () {
-             // onPressAddToCart(context, _addedToCartSnackbar);
+              onPressAddToCart(context, _addedToCartSnackbar);
             },
             child: Container(
               margin: EdgeInsets.only(

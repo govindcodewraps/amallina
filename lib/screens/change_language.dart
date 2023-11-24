@@ -1,19 +1,19 @@
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/custom/useful_elements.dart';
-import 'package:hardware_lo/presenter/home_presenter.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/custom/useful_elements.dart';
+import 'package:amallina/presenter/home_presenter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/my_theme.dart';
+import 'package:amallina/my_theme.dart';
 
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:hardware_lo/repositories/language_repository.dart';
-import 'package:hardware_lo/repositories/coupon_repository.dart';
-import 'package:hardware_lo/helpers/shimmer_helper.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
+import 'package:amallina/repositories/language_repository.dart';
+import 'package:amallina/repositories/coupon_repository.dart';
+import 'package:amallina/helpers/shimmer_helper.dart';
+import 'package:amallina/custom/toast_component.dart';
 import 'package:toast/toast.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
-import 'package:hardware_lo/screens/main.dart';
-import 'package:hardware_lo/providers/locale_provider.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
+import 'package:amallina/screens/main.dart';
+import 'package:amallina/providers/locale_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 

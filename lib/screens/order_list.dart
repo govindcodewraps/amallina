@@ -1,14 +1,14 @@
-import 'package:hardware_lo/custom/box_decorations.dart';
-import 'package:hardware_lo/custom/useful_elements.dart';
-import 'package:hardware_lo/screens/order_details.dart';
-import 'package:hardware_lo/screens/main.dart';
+import 'package:amallina/custom/box_decorations.dart';
+import 'package:amallina/custom/useful_elements.dart';
+import 'package:amallina/screens/order_details.dart';
+import 'package:amallina/screens/main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hardware_lo/my_theme.dart';
+import 'package:amallina/my_theme.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:hardware_lo/repositories/order_repository.dart';
+import 'package:amallina/repositories/order_repository.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:one_context/one_context.dart';
 
@@ -291,7 +291,7 @@ class _OrderListState extends State<OrderList> {
             width: MediaQuery.of(context).size.width * .4,
             child: new DropdownButton<DeliveryStatus>(
               icon: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                padding:  EdgeInsets.symmetric(horizontal: 1.0),
                 child: Icon(Icons.expand_more, color: Colors.black54),
               ),
               hint: Text(

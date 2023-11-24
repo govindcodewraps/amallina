@@ -1,13 +1,13 @@
-import 'package:hardware_lo/custom/btn.dart';
-import 'package:hardware_lo/my_theme.dart';
+import 'package:amallina/custom/btn.dart';
+import 'package:amallina/my_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hardware_lo/custom/input_decorations.dart';
-import 'package:hardware_lo/screens/login.dart';
-import 'package:hardware_lo/repositories/auth_repository.dart';
-import 'package:hardware_lo/custom/toast_component.dart';
+import 'package:amallina/custom/input_decorations.dart';
+import 'package:amallina/screens/login.dart';
+import 'package:amallina/repositories/auth_repository.dart';
+import 'package:amallina/custom/toast_component.dart';
 import 'package:toast/toast.dart';
-import 'package:hardware_lo/helpers/shared_value_helper.dart';
+import 'package:amallina/helpers/shared_value_helper.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
