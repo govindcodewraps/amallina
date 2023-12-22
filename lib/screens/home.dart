@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:amallina/app_config.dart';
 import 'package:amallina/custom/aiz_image.dart';
 import 'package:amallina/custom/box_decorations.dart';
@@ -14,6 +16,7 @@ import 'package:amallina/screens/wishlist.dart';
 import 'package:amallina/ui_elements/mini_product_card.dart';
 import 'package:amallina/ui_elements/product_card.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -23,7 +26,9 @@ import 'package:provider/provider.dart';
 import 'package:toast/toast.dart';
 
 import '../custom/toast_component.dart';
+import '../data_model/NotificationCountModel.dart';
 import '../presenter/cart_counter.dart';
+import 'NotificationScreen.dart';
 import 'cart.dart';
 
 class Home extends StatefulWidget {
@@ -45,9 +50,12 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> with TickerProviderStateMixin {
   HomePresenter homePresenter;
   CartCounter counter = CartCounter();
+  String notificationnumber="0";
+  Map savecount={};
 
   @override
   void initState() {
+    notification_count();
     Future.delayed(Duration.zero).then((value) {
       change();
     });
@@ -105,7 +113,45 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 SizedBox(width: 2,),
-                                Image.asset("assets/notificationlogo.png"),
+
+                                InkWell(
+                                  onTap: () {
+                                    is_logged_in.$ ?
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Notification_Screen()))
+                                        :
+                                    ToastComponent.showDialog(AppLocalizations.of(context).you_need_to_log_in,
+                                        gravity: Toast.center, duration: Toast.lengthLong);
+
+
+                                   // Navigator.push(context, MaterialPageRoute(builder: (context) => Notification_Screen()));
+                                  },
+                                  child: Stack(
+                                    children: [
+                                      Image.asset("assets/notificationlogo.png"),
+                                      Positioned(
+                                        top: 1,
+                                        right: 7,
+                                        child: Container(
+                                          padding: EdgeInsets.all(1),
+                                          decoration: BoxDecoration(
+                                            color: MyTheme.accent_color,
+                                            borderRadius: BorderRadius.circular(50), // Set a circular border radius
+                                          ),
+                                          child: Text(
+                                            " ${notificationnumber} ",
+                                           // " 0 ",
+                                            style: TextStyle(
+                                              fontSize: 8,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+
                                 SizedBox(width: 2,),
                                 InkWell(
                                     onTap: (){
@@ -1087,4 +1133,58 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       ),
     );
   }
+
+
+  Future<NotificationCountModel> notification_count() async {
+    var headers = {
+      'Content-Type': 'application/json',
+      'Cookie': 'XSRF-TOKEN=eyJpdiI6IlFyRFh3Qkk4dzVaNGN6dm9MWlh1c3c9PSIsInZhbHVlIjoiZlJqbW9MK3pnOTJsdU13ejZ1OGN3ekFvNFBTS1BwSWl1WWZKUERHTHVnTjZnWGRQeUNMQzBiOEVCaHl5TzhiditPK3UyUjBsUzY1TlBtRk5DRGFCVEpxMS8yMSsySXlSdmZTK2NMODRwUXJSL1RENkdNYm5KQ2p5Y0FSaEhHUG4iLCJtYWMiOiJkYTM2Njk3MDc1MGExZGRjNjgxYjVlYmM3MTEzNWUyMTgwMmY2ZmI5NjdlNWM2MGNhYWE5NmMzNmZiODkwNDJhIiwidGFnIjoiIn0%3D; umonda_online_marketplace_session=eyJpdiI6IkhFRkJlNEFFNE96NWV3Y0xoT3M4Qnc9PSIsInZhbHVlIjoiNUdPbnVNcjR5SG9xRndCeHBpbDZKQWZKNVVyUm5nQnY3ZmQ0UTlLSk5kTEI5UGs0UVpqWTFub3V6SkJZTTJFNDhJNmwybXN6NmlHdnh4RVBiejZBZ2hZVVZmbWtaTEpmUkpSUG4weDFOVWlSbjRVeWZHQnNmc0hDQnZzaFVsSnUiLCJtYWMiOiJmMjAxYjE0Y2QzNTMzNjQzMWM1ZGJkMmZjZGJkNjg4Mjk2MTAyMzRkOTZkMjIzNTQyMmRmMmQwNWQ5NTc5YjZjIiwidGFnIjoiIn0%3D'
+    };
+    var data = json.encode({
+      "id": user_id.$,
+      //"id": 198,
+    });
+    var dio = Dio();
+    var response = await dio.request(
+      //"${AppConfig.RAW_BASE_URL}/notificationsCount",
+
+      //'https://webcluestechnology.com/demo/erp/umonda/api/v2/notificationsCount',
+      'https://www.webcluestechnology.com/demo/ecommerce/ammalina/api/v2/notificationsCount',
+      options: Options(
+        method: 'POST',
+        headers: headers,
+      ),
+      data: data,
+
+    );
+
+    if (response.statusCode == 200) {
+      // print(json.encode(response.data));
+      print("notification count");
+      print(response.data);
+      savecount=response.data;
+      print("save count variable ${savecount}");
+
+      print("Notification count response: ${response.data}");
+
+      // Assuming response.data is a map like {'unread_notification_count': 1}
+      int numericValue = response.data['unread_notification_count'] ?? 0;
+
+      print("Numeric value: $numericValue");
+
+      print("only number ${numericValue}");
+      notificationnumber=numericValue.toString();// Output: 1
+      print("onlynummmm ${notificationnumber}"); // Output: 1
+
+      //globalResponseBody=response.data;
+      //print("Global data:: ${globalResponseBody}");
+      return NotificationCountModel.fromJson(response.data);
+      print("purchase package");
+      //print(response.data);
+    }
+    else {
+      print(response.statusMessage);
+    }
+  }
+
 }

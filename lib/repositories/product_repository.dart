@@ -22,6 +22,8 @@ class ProductRepository {
       "Currency-Code": SystemConfig.systemCurrency?.code,
       "Currency-Exchange-Rate": SystemConfig.systemCurrency?.exchangeRate,
     });
+    print("AAAAAAAAAAAAAAAABBB${response.body}");
+
     return productMiniResponseFromJson(response.body);
   }
 

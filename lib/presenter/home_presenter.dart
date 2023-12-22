@@ -127,6 +127,8 @@ class HomePresenter extends ChangeNotifier {
     isAllProductInitial = false;
     totalAllProductData = productResponse.meta.total;
     showAllLoadingContainer = false;
+    print("All responseee${productResponse}");
+
     notifyListeners();
   }
 

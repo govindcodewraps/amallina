@@ -36,6 +36,7 @@ class CartRepository {
     );
 
     bool checkResult = ResponseCheck.apply(response.body);
+    print("Cart response AAAA ${response.body}");
 
     if (!checkResult) return responseCheckModelFromJson(response.body);
 
@@ -145,6 +146,7 @@ class CartRepository {
     );
 
     bool checkResult = ResponseCheck.apply(response.body);
+    print("Cart Summary details ${response.body}");
 
     if (!checkResult) return responseCheckModelFromJson(response.body);
 

@@ -668,7 +668,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    padding: EdgeInsets.symmetric(horizontal: 5.0),
                     child: Container(
                         height: 1.0,
                         width: MediaQuery.of(context).size.width * .4,
@@ -739,7 +739,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                   ),
                   Spacer(),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Text(
                       AppLocalizations.of(context).confirmed_ucf,
                       textAlign: TextAlign.center,
@@ -813,7 +813,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                   ),
                   Spacer(),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Text(
                       AppLocalizations.of(context).on_delivery_ucf,
                       textAlign: TextAlign.center,
@@ -886,7 +886,7 @@ class _OrderDetailsState extends State<OrderDetails> {
                   ),
                   Spacer(),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Text(
                       AppLocalizations.of(context).delivered_ucf,
                       textAlign: TextAlign.center,
