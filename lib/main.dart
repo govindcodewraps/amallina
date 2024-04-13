@@ -96,6 +96,25 @@ main() async {
   );
 }
 
+
+  //void main() async {
+  //   WidgetsFlutterBinding.ensureInitialized();
+  //   // await Firebase.initializeApp();
+  //   //for Android
+  //
+  //   await Firebase.initializeApp(
+  //     options: DefaultFirebaseOptions.currentPlatform,
+  //   );
+  //   // runApp(MyApp());
+  //   runApp(
+  //     SharedValue.wrapApp(
+  //       MyApp(),
+  //     ),
+  //   );
+  // }
+
+
+
 class MyApp extends StatefulWidget {
   // This widget is the root of your application.
 

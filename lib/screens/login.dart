@@ -10,7 +10,6 @@ import 'package:flutter/services.dart';
 import 'package:amallina/custom/input_decorations.dart';
 import 'package:amallina/custom/intl_phone_input.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:amallina/screens/registration.dart';
 import 'package:amallina/screens/main.dart';
 import 'package:amallina/screens/password_forget.dart';
@@ -297,12 +296,14 @@ class _LoginState extends State<Login> {
           access_token: appleCredential.identityToken);
 
       if (loginResponse.result == false) {
+
         ToastComponent.showDialog(loginResponse.message,
             gravity: Toast.center, duration: Toast.lengthLong);
       } else {
         ToastComponent.showDialog(loginResponse.message,
             gravity: Toast.center, duration: Toast.lengthLong);
         AuthHelper().setUserData(loginResponse);
+        print("apple login detaisl:: ${loginResponse}");
         Navigator.push(context, MaterialPageRoute(builder: (context) {
           return Main();
         }));
@@ -323,6 +324,8 @@ class _LoginState extends State<Login> {
     // not match the nonce in `appleCredential.identityToken`, sign in will fail.
     //return await FirebaseAuth.instance.signInWithCredential(oauthCredential);
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -390,64 +393,64 @@ class _LoginState extends State<Login> {
                   ),
                 )
               else
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Container(
-                        height: 36,
-                        child: CustomInternationalPhoneNumberInput(
-                          countries: countries_code,
-                          onInputChanged: (PhoneNumber number) {
-                            print(number.phoneNumber);
-                            setState(() {
-                              _phone = number.phoneNumber;
-                            });
-                          },
-                          onInputValidated: (bool value) {
-                            print(value);
-                          },
-                          selectorConfig: SelectorConfig(
-                            selectorType: PhoneInputSelectorType.DIALOG,
-                          ),
-                          ignoreBlank: false,
-                          autoValidateMode: AutovalidateMode.disabled,
-                          selectorTextStyle:
-                              TextStyle(color: MyTheme.font_grey),
-                          textStyle: TextStyle(color: MyTheme.font_grey),
-                          initialValue: PhoneNumber(
-                              isoCode: countries_code[0].toString()),
-                          textFieldController: _phoneNumberController,
-                          formatInput: true,
-                          keyboardType: TextInputType.numberWithOptions(
-                              signed: true, decimal: true),
-                          inputDecoration:
-                              InputDecorations.buildInputDecoration_phone(
-                                  hint_text: "01XXX XXX XXX"),
-                          onSaved: (PhoneNumber number) {
-                            print('On Saved: $number');
-                          },
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            _login_by = "email";
-                          });
-                        },
-                        child: Text(
-                          AppLocalizations.of(context)
-                              .or_login_with_an_email,
-                          style: TextStyle(
-                              color: MyTheme.accent_color,
-                              fontStyle: FontStyle.italic,
-                              decoration: TextDecoration.underline),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.only(bottom: 8.0),
+                //   child: Column(
+                //     crossAxisAlignment: CrossAxisAlignment.end,
+                //     children: [
+                //       Container(
+                //         height: 36,
+                //         child: CustomInternationalPhoneNumberInput(
+                //           countries: countries_code,
+                //           onInputChanged: (PhoneNumber number) {
+                //             print(number.phoneNumber);
+                //             setState(() {
+                //               _phone = number.phoneNumber;
+                //             });
+                //           },
+                //           onInputValidated: (bool value) {
+                //             print(value);
+                //           },
+                //           selectorConfig: SelectorConfig(
+                //             selectorType: PhoneInputSelectorType.DIALOG,
+                //           ),
+                //           ignoreBlank: false,
+                //           autoValidateMode: AutovalidateMode.disabled,
+                //           selectorTextStyle:
+                //               TextStyle(color: MyTheme.font_grey),
+                //           textStyle: TextStyle(color: MyTheme.font_grey),
+                //           initialValue: PhoneNumber(
+                //               isoCode: countries_code[0].toString()),
+                //           textFieldController: _phoneNumberController,
+                //           formatInput: true,
+                //           keyboardType: TextInputType.numberWithOptions(
+                //               signed: true, decimal: true),
+                //           inputDecoration:
+                //               InputDecorations.buildInputDecoration_phone(
+                //                   hint_text: "01XXX XXX XXX"),
+                //           onSaved: (PhoneNumber number) {
+                //             print('On Saved: $number');
+                //           },
+                //         ),
+                //       ),
+                //       GestureDetector(
+                //         onTap: () {
+                //           setState(() {
+                //             _login_by = "email";
+                //           });
+                //         },
+                //         child: Text(
+                //           AppLocalizations.of(context)
+                //               .or_login_with_an_email,
+                //           style: TextStyle(
+                //               color: MyTheme.accent_color,
+                //               fontStyle: FontStyle.italic,
+                //               decoration: TextDecoration.underline),
+                //         ),
+                //       )
+                //     ],
+                //   ),
+                // ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 4.0),
                 child: Text(
@@ -563,7 +566,7 @@ class _LoginState extends State<Login> {
                     },
                 ),
               ),
-              Visibility(
+             /* Visibility(
                 visible: allow_google_login.$ || allow_facebook_login.$,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 20.0),
@@ -574,7 +577,6 @@ class _LoginState extends State<Login> {
                   )),
                 ),
                 ),
-             /*
               Padding(
                 padding: const EdgeInsets.only(top: 15.0),
                 child: Center(
@@ -583,7 +585,7 @@ class _LoginState extends State<Login> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Visibility(
-                          visible: allow_google_login.$,
+                          //visible: allow_google_login.$,
                           child: InkWell(
                             onTap: () {
                               onPressedGoogleLogin();
@@ -622,11 +624,11 @@ class _LoginState extends State<Login> {
                               ),
                             ),
                           ),
-                       *//* if (Platform.isIOS)
+                        if (Platform.isIOS)
                           Padding(
                             padding: const EdgeInsets.only(left: 15.0),
                             // visible: true,
-                            child: A(
+                            child: InkWell(
                               onTap: () async {
                                 signInWithApple();
                               },
@@ -635,7 +637,7 @@ class _LoginState extends State<Login> {
                                 child: Image.asset("assets/apple_logo.png"),
                               ),
                             ),
-                          ),*//*
+                          ),
                       ],
                     ),
                   ),
